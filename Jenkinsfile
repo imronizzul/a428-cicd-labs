@@ -19,7 +19,8 @@ pipeline {
         stage('Deploy') { 
             steps {
                 sh './jenkins/scripts/deliver.sh'  
-                sh './jenkins/scripts/kill.sh' 
+                  input message: 'Lanjutan ke tahap Deploy?'            
+		sh './jenkins/scripts/kill.sh' 
             }
         }
     }
