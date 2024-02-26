@@ -19,7 +19,9 @@ pipeline {
         stage('Deploy') { 
             steps {
                 sh './jenkins/scripts/deliver.sh'  
-                  input message: 'Lanjutan ke tahap Deploy?'            
+                  echo 'wait 1 minute'
+                  sleep(time:60, unit: "SECONDS")
+                  input message: 'Sudah selesai menggunakan React App? (Klik "Proceed" untuk mengakhiri)'            
 		sh './jenkins/scripts/kill.sh' 
             }
         }
